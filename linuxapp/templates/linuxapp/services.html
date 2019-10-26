@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="django form with utf-8">
+    <meta name="author" content="wichit2s">
+    <title>Linux Services</title>
+
+    {% load static %}
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+
+    <style>
+      .filled {
+        width: 80%;
+        padding: 5px;
+      }
+      .spacing {
+        padding: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <nav> <h1> Linux Services Page </h1> </nav>
+    <div>
+      <section class="filled">
+        <form action="services" method="POST" enctype="multipart/form-data;charset=UTF-8">
+          {% csrf_token %}
+          <div class="spacing"><input class="filled" type="text" name="icon" value="icon "/></div>
+          <div class="spacing"><input class="filled" type="text" name="title" value="title "/></div>
+          <div class="spacing"><input class="filled" type="text" name="detail" value="detail "/></div>
+          <div class="spacing"><button style="padding: 2em;" type="submit">Submit</button></div>
+        </form>
+      </section>
+      <div>
+       <table style="width:80%; border: 1px solid black; padding: 1em;">
+        <tr>
+          <th>Icon</th>
+          <th>Title</th>
+          <th>Detail</th>
+        </tr>
+        {% for s in services %}
+        <tr>
+          <td> <i class="fa {{s.icon}}"></i> {{ s.icon }}</td>
+          <td>{{ s.title }}</td>
+          <td>{{ s.detail }}</td>
+        </tr>
+        {% endfor %}
+      </table> 
+      </div>
+    </div>
+    <footer>
+      <div>
+        <div>Copyright &copy; 2019 </div>
+      </div>
+    </footer>
+  </body>
+
+</html>
