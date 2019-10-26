@@ -21,4 +21,6 @@ urlpatterns = [
     path('', linuxappviews.index),
     path('services', linuxappviews.services),
     path('admin/', admin.site.urls),
+    path('reviews',linuxappviews.reviews),
+    path('universe',linuxappviews.universe)
 ]

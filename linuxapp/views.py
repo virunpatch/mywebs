@@ -24,3 +24,9 @@ def services(req):
 
 def index(req):
     return render(req, 'linuxapp/index.html')
+
+def reviews(req):
+    return render(req, 'linuxapp/reviews.html')
+
+def universe(req):
+    return render(req, 'linuxapp/universe.html')
